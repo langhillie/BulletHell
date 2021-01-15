@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float Speed = 20f;
+    public float StartSpeed = 20f;
+    public float EndSpeed = 20f;
     public float damage = 3f;
+
+    private float Speed;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        Speed = StartSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Speed = Mathf.Lerp(Speed, EndSpeed, Time.deltaTime * 3);
         transform.position = transform.position + transform.forward * Speed * Time.deltaTime;
     }
     private void OnTriggerExit(Collider other)

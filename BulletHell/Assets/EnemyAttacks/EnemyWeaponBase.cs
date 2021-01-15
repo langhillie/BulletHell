@@ -50,7 +50,8 @@ public abstract class EnemyWeaponBase : MonoBehaviour
         GameObject bullet = GameObject.Instantiate(this.BulletPrefab, transform.position, transform.rotation);
         bullet.transform.Rotate(BulletTrajectory);
         bullet.tag = "EnemyBullet";
-        bullet.GetComponent<Bullet>().Speed = 2f;
+        bullet.GetComponent<Bullet>().StartSpeed = 5f;
+        bullet.GetComponent<Bullet>().EndSpeed = 2f;
         bullet.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
     }
 
