@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private int Lives = 3;
+    private int Lives = 2;
     [SerializeField]
     public Text LivesText;
     [SerializeField]
@@ -26,7 +26,12 @@ public class GameManager : MonoBehaviour
         LivesText.text = "Lives " + Lives;
         if (Lives <= 0)
         {
-            SceneManager.LoadScene("MainMenu");
+            GameOver();
         }
+    }
+
+    private void GameOver()
+    {
+        SceneManager.LoadScene("MenuScene");
     }
 }
