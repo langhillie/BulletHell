@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 20
+  ScoreValue: 5
   Weapon: {fileID: 2297613297643603021}
 --- !u!114 &2297613297643603021
 MonoBehaviour:

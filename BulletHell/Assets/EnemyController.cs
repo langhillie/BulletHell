@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    private GameManager gm;
+
     public float Health = 20;
     private float MovementSpeed = 1f;
     private MovementModes MovementMode;
     private float FireRate = 2.5f;
     private float FireCooldown = 2f;
     private float CreationTime;
+
+    [SerializeField]
+    private int ScoreValue;
 
     [SerializeField]
     private EnemyWeaponBase Weapon;
@@ -35,7 +40,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -75,6 +80,7 @@ public class EnemyController : MonoBehaviour
 
             if (Health <= 0)
             {
+                gm.EnemyKilled(ScoreValue);
                 Destroy(this.gameObject);
             }
         }

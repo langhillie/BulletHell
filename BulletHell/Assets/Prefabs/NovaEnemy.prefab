@@ -124,7 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b816d3fd56ff5a4d871a495bb2ce376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 20
+  Health: 30
+  ScoreValue: 8
   Weapon: {fileID: 8329769707948159881}
 --- !u!114 &8329769707948159881
 MonoBehaviour:

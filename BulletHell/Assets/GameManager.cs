@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    private int Score = 0;
     private int Lives = 2;
+
     [SerializeField]
     public Text LivesText;
     [SerializeField]
@@ -33,5 +35,11 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         SceneManager.LoadScene("MenuScene");
+    }
+
+    public void EnemyKilled(int EnemyValue)
+    {
+        Score += EnemyValue;
+        ScoreText.text = "" + Score;
     }
 }
