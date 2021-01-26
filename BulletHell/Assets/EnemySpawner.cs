@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject BossPrefab;
 
-    private float MaxCooldown = 10f;
+    private float MaxCooldown = 2.5f;
     private float SpawnCooldown = 0;
 
 
