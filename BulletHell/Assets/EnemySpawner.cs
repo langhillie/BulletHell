@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject BossPrefab;
 
-    private float MaxCooldown = 3f;
+    private float MaxCooldown = 10f;
     private float SpawnCooldown = 0;
 
 
@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
 
             Vector2 SpawnPos = new Vector2(transform.position.x + Random.Range(-1f, 1f), transform.position.y);
             GameObject Enemy = GameObject.Instantiate(EnemyPrefabs[Random.Range(0, EnemyPrefabs.Count)], SpawnPos, transform.rotation);
-            Enemy.GetComponent<EnemyController>().Initialize(EnemyController.MovementModes.Sin, 2f);
+            Enemy.GetComponent<EnemyController>().Initialize();
         }
         else
         {

@@ -10,29 +10,33 @@ public abstract class EnemyWeaponBase : MonoBehaviour
     [SerializeField]
     protected int ShotCount;
     [SerializeField]
-    protected float DelayBetweenShots;
-
-
+    protected float DelayBetweenBullets;
     protected int CurrentShot = 0;
+    protected float BulletCooldown = 2f;
+
+    [SerializeField]
+    protected float FireRate = 2.5f;
     protected float FireCooldown = 2f;
+
 
     private void Update()
     {
-        if (this.FireCooldown <= 0 && CurrentShot > 0)
+        if (this.BulletCooldown > 0)
+        {
+            this.BulletCooldown -= Time.deltaTime;
+        }
+
+        if (this.BulletCooldown <= 0 && CurrentShot > 0)
         {
             ShootBullet(CalculateBulletTrajectory(transform.forward));
-            FireCooldown = this.DelayBetweenShots;
+            BulletCooldown = this.DelayBetweenBullets;
             CurrentShot--;
-        }
-        else if (this.FireCooldown > 0)
-        {
-            this.FireCooldown -= Time.deltaTime;
         }
     }
 
     public void Shoot()
     {
-        if (this.DelayBetweenShots == 0)
+        if (this.DelayBetweenBullets == 0)
         {
             for (this.CurrentShot = ShotCount; this.CurrentShot > 0; this.CurrentShot--)
             {
